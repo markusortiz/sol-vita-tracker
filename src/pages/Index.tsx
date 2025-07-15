@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import IOSNavigation from '@/components/IOSNavigation';
 import { 
   Sun, 
   Smartphone, 
@@ -40,7 +41,9 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-20">
+      {/* iOS Status Bar Safe Area */}
+      <div className="pt-safe-top">{/* Status bar placeholder */}</div>
       {/* Hero Section */}
       <div className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -57,7 +60,7 @@ const Index = () => {
             <Sun className="h-16 w-16 text-primary animate-pulse" />
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-vitamin bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-ios-vitamin bg-clip-text text-transparent">
             VitaD Tracker
           </h1>
           
@@ -68,7 +71,7 @@ const Index = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              variant="vitamin" 
+              variant="ios" 
               size="xl"
               onClick={() => navigate('/tracker')}
               className="text-lg px-8"
@@ -103,9 +106,9 @@ const Index = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
-              <Card key={index} className="p-6 shadow-card hover:shadow-vitamin transition-all duration-300 hover:-translate-y-1">
+              <Card key={index} className="p-6 shadow-ios-medium hover:shadow-ios-large transition-ios hover:-translate-y-1">
                 <div className="flex flex-col items-center text-center">
-                  <div className="p-3 bg-gradient-vitamin rounded-full mb-4">
+                  <div className="p-3 bg-gradient-ios-vitamin rounded-full mb-4">
                     <feature.icon className="h-6 w-6 text-primary-foreground" />
                   </div>
                   
@@ -124,7 +127,7 @@ const Index = () => {
       </div>
 
       {/* Stats Section */}
-      <div className="py-16 bg-gradient-health">
+      <div className="py-16 bg-gradient-ios-health">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-12 text-accent-foreground">
             Saúde em Números
@@ -166,7 +169,7 @@ const Index = () => {
           </p>
           
           <Button 
-            variant="sunrise" 
+            variant="ios" 
             size="xl"
             onClick={() => navigate('/tracker')}
             className="text-lg px-12"
@@ -176,6 +179,8 @@ const Index = () => {
           </Button>
         </div>
       </div>
+      
+      <IOSNavigation />
     </div>
   );
 };

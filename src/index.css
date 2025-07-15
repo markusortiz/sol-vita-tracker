@@ -8,50 +8,63 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Vitamin D App - Sunny & Health Inspired Colors */
-    --background: 45 100% 98%;
-    --foreground: 240 10% 15%;
+    /* iOS Light Mode Colors - Following Apple's Human Interface Guidelines */
+    --background: 0 0% 97%;
+    --foreground: 0 0% 13%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 15%;
+    --card-foreground: 0 0% 13%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 15%;
+    --popover-foreground: 0 0% 13%;
 
-    /* Vitamin D Golden Theme */
-    --primary: 45 93% 47%;
+    /* iOS System Blue as Primary (Vitamin D Golden Variant) */
+    --primary: 45 96% 53%;
     --primary-foreground: 0 0% 100%;
     --primary-glow: 45 100% 65%;
 
-    --secondary: 45 100% 95%;
-    --secondary-foreground: 45 93% 47%;
+    /* iOS System Gray Backgrounds */
+    --secondary: 210 17% 96%;
+    --secondary-foreground: 0 0% 13%;
 
-    --muted: 45 20% 96%;
-    --muted-foreground: 240 5% 50%;
+    --muted: 210 17% 95%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 120 40% 90%;
-    --accent-foreground: 120 60% 25%;
+    /* iOS System Green for Health */
+    --accent: 142 71% 45%;
+    --accent-foreground: 0 0% 100%;
 
+    /* iOS System Red for Destructive */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 45 30% 90%;
-    --input: 45 30% 94%;
-    --ring: 45 93% 47%;
+    /* iOS Borders & Inputs */
+    --border: 210 17% 89%;
+    --input: 210 17% 93%;
+    --ring: 45 96% 53%;
 
-    /* Health & Wellness Gradients */
-    --gradient-sunrise: linear-gradient(135deg, hsl(45 100% 65%), hsl(35 95% 55%));
-    --gradient-health: linear-gradient(135deg, hsl(120 40% 85%), hsl(45 100% 95%));
-    --gradient-vitamin: linear-gradient(135deg, hsl(45 93% 47%), hsl(45 100% 65%));
+    /* iOS-style Radius */
+    --radius: 0.75rem;
+
+    /* iOS Safe Area Support */
+    --safe-area-inset-top: env(safe-area-inset-top);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom);
+    --safe-area-inset-left: env(safe-area-inset-left);
+    --safe-area-inset-right: env(safe-area-inset-right);
+
+    /* iOS-inspired Gradients */
+    --gradient-ios-vitamin: linear-gradient(135deg, hsl(45 96% 53%), hsl(35 95% 60%));
+    --gradient-ios-health: linear-gradient(135deg, hsl(142 71% 45%), hsl(120 65% 55%));
+    --gradient-ios-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 17% 98%));
     
-    /* Shadows with vitamin D glow */
-    --shadow-soft: 0 4px 20px hsl(45 50% 85% / 0.3);
-    --shadow-vitamin: 0 8px 30px hsl(45 93% 47% / 0.2);
-    --shadow-card: 0 2px 10px hsl(240 10% 15% / 0.08);
+    /* iOS Shadows - Subtle and refined */
+    --shadow-ios-small: 0 1px 3px hsl(0 0% 0% / 0.1);
+    --shadow-ios-medium: 0 4px 16px hsl(0 0% 0% / 0.1);
+    --shadow-ios-large: 0 8px 32px hsl(0 0% 0% / 0.12);
     
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* iOS Transitions */
+    --transition-ios: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-ios-spring: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --radius: 0.5rem;
 
@@ -73,44 +86,44 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Dark mode with warm vitamin D accents */
-    --background: 240 15% 8%;
-    --foreground: 45 100% 95%;
+    /* iOS Dark Mode - Following Apple's Dark Mode Guidelines */
+    --background: 0 0% 6%;
+    --foreground: 0 0% 95%;
 
-    --card: 240 12% 12%;
-    --card-foreground: 45 100% 95%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 240 12% 12%;
-    --popover-foreground: 45 100% 95%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 45 100% 65%;
-    --primary-foreground: 240 15% 8%;
-    --primary-glow: 45 100% 75%;
+    --primary: 45 96% 58%;
+    --primary-foreground: 0 0% 6%;
+    --primary-glow: 45 100% 70%;
 
-    --secondary: 240 10% 20%;
-    --secondary-foreground: 45 100% 95%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 240 8% 18%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 120 30% 25%;
-    --accent-foreground: 120 40% 85%;
+    --accent: 142 71% 50%;
+    --accent-foreground: 0 0% 6%;
 
-    --destructive: 0 75% 55%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 0 0% 6%;
 
-    --border: 240 8% 25%;
-    --input: 240 8% 22%;
-    --ring: 45 100% 65%;
+    --border: 0 0% 18%;
+    --input: 0 0% 15%;
+    --ring: 45 96% 58%;
 
     /* Dark mode gradients */
-    --gradient-sunrise: linear-gradient(135deg, hsl(45 100% 65%), hsl(35 95% 55%));
-    --gradient-health: linear-gradient(135deg, hsl(120 30% 25%), hsl(240 10% 20%));
-    --gradient-vitamin: linear-gradient(135deg, hsl(45 100% 65%), hsl(45 90% 75%));
+    --gradient-ios-vitamin: linear-gradient(135deg, hsl(45 96% 58%), hsl(35 95% 65%));
+    --gradient-ios-health: linear-gradient(135deg, hsl(142 71% 50%), hsl(120 65% 60%));
+    --gradient-ios-card: linear-gradient(180deg, hsl(0 0% 9%), hsl(0 0% 12%));
     
-    --shadow-soft: 0 4px 20px hsl(240 15% 5% / 0.5);
-    --shadow-vitamin: 0 8px 30px hsl(45 100% 65% / 0.15);
-    --shadow-card: 0 2px 10px hsl(240 15% 5% / 0.3);
+    --shadow-ios-small: 0 1px 3px hsl(0 0% 0% / 0.3);
+    --shadow-ios-medium: 0 4px 16px hsl(0 0% 0% / 0.3);
+    --shadow-ios-large: 0 8px 32px hsl(0 0% 0% / 0.4);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -127,7 +140,33 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    /* iOS Safe Area Support */
+    padding-top: var(--safe-area-inset-top);
+    padding-bottom: var(--safe-area-inset-bottom);
+    padding-left: var(--safe-area-inset-left);
+    padding-right: var(--safe-area-inset-right);
+  }
+
   body {
     @apply bg-background text-foreground;
+    /* iOS System Font Stack */
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+    /* iOS-style text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevent zoom on iOS */
+    touch-action: manipulation;
+  }
+
+  /* iOS-style scrollbars */
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+
+  /* iOS-style tap highlighting */
+  * {
+    -webkit-tap-highlight-color: transparent;
   }
 }

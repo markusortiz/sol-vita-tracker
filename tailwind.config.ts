@@ -64,19 +64,28 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			fontFamily: {
+				'ios': ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'SF Pro Text', 'sans-serif'],
+			},
+			spacing: {
+				'safe-top': 'var(--safe-area-inset-top)',
+				'safe-bottom': 'var(--safe-area-inset-bottom)',
+				'safe-left': 'var(--safe-area-inset-left)',
+				'safe-right': 'var(--safe-area-inset-right)',
+			},
 			backgroundImage: {
-				'gradient-sunrise': 'var(--gradient-sunrise)',
-				'gradient-health': 'var(--gradient-health)',
-				'gradient-vitamin': 'var(--gradient-vitamin)'
+				'gradient-ios-vitamin': 'var(--gradient-ios-vitamin)',
+				'gradient-ios-health': 'var(--gradient-ios-health)',
+				'gradient-ios-card': 'var(--gradient-ios-card)'
 			},
 			boxShadow: {
-				'soft': 'var(--shadow-soft)',
-				'vitamin': 'var(--shadow-vitamin)',
-				'card': 'var(--shadow-card)'
+				'ios-small': 'var(--shadow-ios-small)',
+				'ios-medium': 'var(--shadow-ios-medium)',
+				'ios-large': 'var(--shadow-ios-large)'
 			},
 			transitionTimingFunction: {
-				'smooth': 'var(--transition-smooth)',
-				'bounce': 'var(--transition-bounce)'
+				'ios': 'var(--transition-ios)',
+				'ios-spring': 'var(--transition-ios-spring)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

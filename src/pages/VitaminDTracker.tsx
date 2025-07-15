@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { Geolocation } from '@capacitor/geolocation';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
+import IOSNavigation from '@/components/IOSNavigation';
 import heroImage from '@/assets/vitamin-d-hero.jpg';
 
 interface VitaminDEntry {
@@ -131,9 +132,11 @@ const VitaminDTracker = () => {
   const progressPercentage = Math.min((dailyTotal / dailyRecommendation) * 100, 100);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-20">
+      {/* iOS Status Bar Safe Area */}
+      <div className="pt-safe-top">{/* Status bar placeholder */}</div>
       {/* Header com imagem hero */}
-      <div className="relative h-48 bg-gradient-sunrise overflow-hidden">
+      <div className="relative h-48 bg-gradient-ios-vitamin overflow-hidden">
         <img 
           src={heroImage} 
           alt="Vitamin D Tracker" 
@@ -148,7 +151,7 @@ const VitaminDTracker = () => {
 
       <div className="p-4 space-y-6">
         {/* Card de progresso diário */}
-        <Card className="p-6 shadow-card">
+        <Card className="p-6 shadow-ios-medium">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <Sun className="h-6 w-6 text-primary" />
@@ -170,7 +173,7 @@ const VitaminDTracker = () => {
         </Card>
 
         {/* Adicionar nova dose */}
-        <Card className="p-6 shadow-card">
+        <Card className="p-6 shadow-ios-medium">
           <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
             <Plus className="h-5 w-5" />
             Registrar Vitamina D
@@ -202,7 +205,7 @@ const VitaminDTracker = () => {
             </div>
             
             <Button 
-              variant="vitamin" 
+              variant="ios" 
               size="lg" 
               onClick={addVitaminDEntry}
               className="w-full"
@@ -214,7 +217,7 @@ const VitaminDTracker = () => {
         </Card>
 
         {/* Configurações do perfil */}
-        <Card className="p-6 shadow-card">
+        <Card className="p-6 shadow-ios-medium">
           <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
             <Settings className="h-5 w-5" />
             Perfil & Configurações
@@ -279,7 +282,7 @@ const VitaminDTracker = () => {
 
         {/* Histórico de hoje */}
         {dailyEntries.length > 0 && (
-          <Card className="p-6 shadow-card">
+          <Card className="p-6 shadow-ios-medium">
             <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
               <Calendar className="h-5 w-5" />
               Histórico de Hoje
@@ -313,7 +316,7 @@ const VitaminDTracker = () => {
         )}
 
         {/* Card de integração com saúde */}
-        <Card className="p-6 shadow-card bg-gradient-health">
+        <Card className="p-6 shadow-ios-medium bg-gradient-ios-health">
           <div className="flex items-center gap-3 mb-3">
             <Smartphone className="h-6 w-6 text-accent-foreground" />
             <h3 className="text-lg font-semibold text-accent-foreground">
@@ -323,14 +326,14 @@ const VitaminDTracker = () => {
           <p className="text-accent-foreground/80 text-sm mb-4">
             Sincronize seus dados com o app de Saúde do seu dispositivo para um acompanhamento completo.
           </p>
-          <Button variant="health" size="sm">
+          <Button variant="ios-health" size="sm">
             <Activity className="h-4 w-4 mr-2" />
             Conectar App de Saúde
           </Button>
         </Card>
 
         {/* Card informativo */}
-        <Card className="p-6 shadow-card border border-primary/20">
+        <Card className="p-6 shadow-ios-medium border border-primary/20">
           <div className="flex items-center gap-2 mb-3">
             <Target className="h-5 w-5 text-primary" />
             <h3 className="font-semibold text-primary">Dica do Dia</h3>
@@ -341,6 +344,8 @@ const VitaminDTracker = () => {
           </p>
         </Card>
       </div>
+      
+      <IOSNavigation />
     </div>
   );
 };
