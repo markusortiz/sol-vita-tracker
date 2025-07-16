@@ -1,0 +1,65 @@
+{
+  "expo": {
+    "name": "Sol Vita Tracker",
+    "slug": "sol-vita-tracker",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./public/favicon.svg",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./public/placeholder.svg",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.solarin.uvtracker",
+      "buildNumber": "1.0.0",
+      "infoPlist": {
+                "NSLocationWhenInUseUsageDescription": "This app needs access to location to provide accurate UV data for your area.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app uses your location to provide personalized UV information."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./public/favicon.svg",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.solarin.uvtracker",
+      "versionCode": 1,
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACTIVITY_RECOGNITION"
+      ]
+    },
+    "web": {
+      "favicon": "./public/favicon.ico"
+    },
+    "plugins": [
+      "expo-location"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "your-project-id-here"
+      }
+    },
+    "privacy": "public",
+    "platforms": ["ios", "android"],
+    "description": "Track your daily Vitamin D intake and UV exposure for optimal health",
+    "keywords": ["vitamin d", "uv tracker", "health", "wellness", "sunlight"],
+    "primaryColor": "#FF6B35",
+    "icon": {
+      "image": "./public/favicon.svg",
+      "backgroundColor": "#FFFFFF"
+    },
+    "splash": {
+      "image": "./public/placeholder.svg",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFFFFF"
+    }
+  }
+} 

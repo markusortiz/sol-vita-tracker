@@ -8,7 +8,17 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:ios": "npm run build && npx cap copy ios && npx cap sync ios",
+    "build:android": "npm run build && npx cap copy android && npx cap sync android",
+    "docker:dev": "scripts\\dev.bat",
+    "docker:prod": "scripts\\deploy.bat",
+    "docker:build": "docker build -t sol-vita-tracker:latest .",
+    "docker:stop": "docker-compose down",
+    "eas:build:ios": "eas build --platform ios --profile production",
+    "eas:build:android": "eas build --platform android --profile production",
+    "eas:submit:ios": "eas submit --platform ios --latest",
+    "eas:submit:android": "eas submit --platform android --latest"
   },
   "dependencies": {
     "@capacitor/cli": "^7.4.2",
@@ -50,6 +60,9 @@
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.3.0",
+    "expo": "^53.0.19",
+    "expo-health": "^0.0.0",
+    "expo-location": "^18.1.6",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.462.0",
     "next-themes": "^0.3.0",
@@ -68,6 +81,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@expo/cli": "latest",
     "@tailwindcss/typography": "^0.5.15",
     "@types/node": "^22.5.5",
     "@types/react": "^18.3.3",

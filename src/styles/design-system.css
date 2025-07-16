@@ -1,0 +1,419 @@
+/* Enhanced Design System for Sol-Vita-Tracker */
+/* Phase 3: Design System Refinement */
+
+/* ======================
+   1. ENHANCED ANIMATIONS
+   ====================== */
+
+/* Smooth entry animations */
+@keyframes slideUpEnhanced {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 193, 7, 0.4);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes counterUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ======================
+   2. ENHANCED COMPONENTS
+   ====================== */
+
+/* Improved cards with depth and iOS-like shadows */
+.card-enhanced {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideUpEnhanced 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.card-enhanced:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.15),
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Enhanced UV display with glow effects */
+.uv-display-enhanced {
+  position: relative;
+  font-size: 5rem;
+  font-weight: 200;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(251, 191, 36, 0.3);
+  animation: fadeInScale 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.uv-display-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Enhanced buttons with iOS-style interactions */
+.button-enhanced {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  box-shadow: 
+    0 8px 24px rgba(251, 191, 36, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Manual mode button - Pure yellow theme */
+.button-enhanced-manual {
+  background: linear-gradient(135deg, #eab308, #facc15);
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  box-shadow: 
+    0 8px 24px rgba(234, 179, 8, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.button-enhanced:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 12px 32px rgba(251, 191, 36, 0.5),
+    0 4px 16px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.button-enhanced:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 
+    0 4px 16px rgba(251, 191, 36, 0.3),
+    0 1px 4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.button-enhanced-manual:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 12px 32px rgba(234, 179, 8, 0.5),
+    0 4px 16px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.button-enhanced-manual:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 
+    0 4px 16px rgba(234, 179, 8, 0.3),
+    0 1px 4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Ripple effect for buttons */
+.button-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.button-enhanced:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ======================
+   3. ENHANCED STATUS INDICATORS
+   ====================== */
+
+.status-badge-enhanced {
+  background: rgba(251, 191, 36, 0.15);
+  color: #92400e;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  animation: fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.status-active {
+  background: rgba(34, 197, 94, 0.15);
+  color: #166534;
+  border-color: rgba(34, 197, 94, 0.3);
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* ======================
+   4. ENHANCED PROGRESS INDICATORS
+   ====================== */
+
+.progress-enhanced {
+  position: relative;
+  background: rgba(251, 191, 36, 0.1);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.progress-enhanced::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706, #fbbf24);
+  border-radius: 50%;
+  z-index: -1;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ======================
+   5. ENHANCED TYPOGRAPHY
+   ====================== */
+
+.text-enhanced-heading {
+  font-weight: 700;
+  background: linear-gradient(135deg, #1f2937, #4b5563);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.text-enhanced-body {
+  color: #6b7280;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.text-enhanced-accent {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* ======================
+   6. ENHANCED LAYOUT & SPACING
+   ====================== */
+
+.container-enhanced {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1rem;
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-enhanced {
+  margin-bottom: 2rem;
+}
+
+.spacing-enhanced-sm { margin-bottom: 1rem; }
+.spacing-enhanced-md { margin-bottom: 1.5rem; }
+.spacing-enhanced-lg { margin-bottom: 2rem; }
+.spacing-enhanced-xl { margin-bottom: 3rem; }
+
+/* ======================
+   7. ENHANCED MICRO-INTERACTIONS
+   ====================== */
+
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+.scale-on-tap {
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scale-on-tap:active {
+  transform: scale(0.95);
+}
+
+/* ======================
+   8. ENHANCED GRADIENTS
+   ====================== */
+
+.gradient-enhanced-primary {
+  background: linear-gradient(135deg, #fef3c7, #fbbf24, #f59e0b);
+}
+
+.gradient-enhanced-secondary {
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb, #d1d5db);
+}
+
+.gradient-enhanced-accent {
+  background: linear-gradient(135deg, #fef3c7, #fed7aa, #fbbf24);
+}
+
+/* ======================
+   9. ENHANCED GLASS MORPHISM
+   ====================== */
+
+.glass-enhanced {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* ======================
+   10. ENHANCED RESPONSIVE
+   ====================== */
+
+@media (max-width: 480px) {
+  .uv-display-enhanced {
+    font-size: 4rem;
+  }
+  
+  .container-enhanced {
+    padding: 0.75rem;
+    gap: 1rem;
+  }
+}
+
+/* ======================
+   11. STAGGERED ANIMATIONS
+   ====================== */
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* ======================
+   12. ENHANCED FOCUS STATES
+   ====================== */
+
+.focus-enhanced:focus {
+  outline: none;
+  box-shadow: 
+    0 0 0 3px rgba(251, 191, 36, 0.3),
+    0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+/* ======================
+   13. ENHANCED COLLAPSIBLE
+   ====================== */
+
+.collapsible-enhanced {
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.collapsible-enhanced.expanded {
+  animation: slideDownSmooth 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideDownSmooth {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+    transform: translateY(0);
+  }
+} 
