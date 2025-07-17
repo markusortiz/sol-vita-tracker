@@ -601,40 +601,51 @@ const UVTracker = () => {
 
         {/* Main UV Display - Hero Number */}
         <div className="text-center mb-12 relative">
-          {/* Subtle glow effect behind the number */}
-          <div className={`absolute inset-0 flex items-center justify-center ${
-            isNightTime ? '' : 'opacity-20'
-          }`}>
-            <div className={`w-48 h-48 rounded-full blur-3xl ${
-              isNightTime ? 'bg-yellow-400/5' : 'bg-amber-300/10'
-            }`}></div>
-          </div>
-          
-          <div className={`relative text-8xl font-light mb-2 ${
-            isNightTime ? 'text-white' : 'text-gray-900'
-          }`}>
-            {loading ? '—' : (isNightTime ? '0.00' : weather.uvIndex.toFixed(2))}
-          </div>
-          <div className={`text-sm font-medium tracking-wider mb-1 ${
-            isNightTime ? 'text-gray-400' : 'text-gray-500'
-          }`}>
-            ÍNDICE UV
-          </div>
-          <div className={`text-sm ${
-            isNightTime ? 'text-gray-400' : 'text-gray-600'
-          }`}>
-            {isNightTime 
-              ? 'Modo noturno'
-              : getUVStatus(weather.uvIndex)
-            }
+          {/* UV Index Container */}
+          <div className={`relative p-8 rounded-3xl ${
+            isNightTime 
+              ? 'bg-gray-800/50 border border-gray-700/50' 
+              : 'bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/50'
+          } shadow-lg backdrop-blur-sm`}>
+            {/* Subtle glow effect behind the number */}
+            <div className={`absolute inset-0 flex items-center justify-center ${
+              isNightTime ? '' : 'opacity-20'
+            }`}>
+              <div className={`w-48 h-48 rounded-full blur-3xl ${
+                isNightTime ? 'bg-yellow-400/5' : 'bg-amber-300/10'
+              }`}></div>
+            </div>
+            
+            <div className={`relative text-8xl font-light mb-2 ${
+              isNightTime ? 'text-white' : 'text-gray-900'
+            }`}>
+              {loading ? '—' : (isNightTime ? '0.00' : weather.uvIndex.toFixed(2))}
+            </div>
+            <div className={`text-sm font-medium tracking-wider mb-1 ${
+              isNightTime ? 'text-gray-400' : 'text-gray-500'
+            }`}>
+              ÍNDICE UV
+            </div>
+            <div className={`text-sm ${
+              isNightTime ? 'text-gray-400' : 'text-gray-600'
+            }`}>
+              {isNightTime 
+                ? 'Modo noturno'
+                : getUVStatus(weather.uvIndex)
+              }
+            </div>
           </div>
         </div>
 
-        {/* Session Data - Clean Layout */}
-        <div className="space-y-8 mb-12">
+        {/* Session Data - Clean Layout with Container */}
+        <div className={`p-6 rounded-3xl mb-12 ${
+          isNightTime 
+            ? 'bg-gray-800/30 border border-gray-700/30' 
+            : 'bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200/50'
+        } shadow-lg backdrop-blur-sm`}>
           
           {/* Burn Time */}
-          <div className="text-center">
+          <div className="text-center mb-8">
             <div className={`text-2xl font-light mb-1 ${
               isNightTime ? 'text-white' : 'text-gray-900'
             }`}>
@@ -689,7 +700,7 @@ const UVTracker = () => {
 
           {/* Timer - Only when active */}
           {session.isActive && (
-            <div className="text-center">
+            <div className="text-center mt-6">
               <div className={`text-2xl font-mono font-light ${
                 isNightTime ? 'text-white' : 'text-gray-900'
               }`}>
@@ -699,8 +710,12 @@ const UVTracker = () => {
           )}
         </div>
 
-        {/* Daily Goal Progress */}
-        <div className="mb-12">
+        {/* Daily Goal Progress - Container */}
+        <div className={`p-6 rounded-3xl mb-12 ${
+          isNightTime 
+            ? 'bg-gray-800/30 border border-gray-700/30' 
+            : 'bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200/50'
+        } shadow-lg backdrop-blur-sm`}>
           <div className="flex items-center justify-center">
             <div className="relative w-32 h-32">
               {/* Background circle */}
@@ -1001,55 +1016,55 @@ const getUVStatus = (uvIndex: number) => {
 };
 
 // Helper functions for labels
-  const getSkinTypeLabel = (skinType: string) => {
-    const labels = {
-      'very-light': 'Muito clara',
-      'light': 'Clara',
-      'medium': 'Média',
-      'dark': 'Escura',
-      'very-dark': 'Muito escura'
-    };
-    return labels[skinType as keyof typeof labels] || 'Clara';
+const getSkinTypeLabel = (skinType: string) => {
+  const labels = {
+    'very-light': 'Muito clara',
+    'light': 'Clara',
+    'medium': 'Média',
+    'dark': 'Escura',
+    'very-dark': 'Muito escura'
   };
+  return labels[skinType as keyof typeof labels] || 'Clara';
+};
 
-  const getSkinTypeDescription = (skinType: string) => {
-    const descriptions = {
-      'very-light': 'Queima sempre, nunca bronzeia',
-      'light': 'Queima facilmente, bronzeia levemente',
-      'medium': 'Queima moderadamente, bronzeia gradualmente',
-      'dark': 'Raramente queima, bronzeia bem',
-      'very-dark': 'Quase nunca queima, pele profundamente pigmentada'
-    };
-    return descriptions[skinType as keyof typeof descriptions] || '';
+const getSkinTypeDescription = (skinType: string) => {
+  const descriptions = {
+    'very-light': 'Queima sempre, nunca bronzeia',
+    'light': 'Queima facilmente, bronzeia levemente',
+    'medium': 'Queima moderadamente, bronzeia gradualmente',
+    'dark': 'Raramente queima, bronzeia bem',
+    'very-dark': 'Quase nunca queima, pele profundamente pigmentada'
   };
+  return descriptions[skinType as keyof typeof descriptions] || '';
+};
 
-  const getSkinTypeColor = (skinType: string) => {
-    const colors = {
-      'very-light': 'bg-orange-100 border-orange-200',
-      'light': 'bg-orange-200 border-orange-300',
-      'medium': 'bg-amber-400 border-amber-500',
-      'dark': 'bg-amber-700 border-amber-800',
-      'very-dark': 'bg-amber-900 border-amber-950'
-    };
-    return colors[skinType as keyof typeof colors] || 'bg-orange-200 border-orange-300';
+const getSkinTypeColor = (skinType: string) => {
+  const colors = {
+    'very-light': 'bg-orange-100 border-orange-200',
+    'light': 'bg-orange-200 border-orange-300',
+    'medium': 'bg-amber-400 border-amber-500',
+    'dark': 'bg-amber-700 border-amber-800',
+    'very-dark': 'bg-amber-900 border-amber-950'
   };
+  return colors[skinType as keyof typeof colors] || 'bg-orange-200 border-orange-300';
+};
 
-  const getClothingLabel = (clothing: string) => {
-    const labels = {
-      'minimal': 'Mínima',
-      'partial': 'Moderada',
-      'full': 'Completa'
-    };
-    return labels[clothing as keyof typeof labels] || 'Moderada';
+const getClothingLabel = (clothing: string) => {
+  const labels = {
+    'minimal': 'Mínima',
+    'partial': 'Moderada',
+    'full': 'Completa'
   };
+  return labels[clothing as keyof typeof labels] || 'Moderada';
+};
 
-  const getClothingDescription = (clothing: string) => {
-    const descriptions = {
-      'minimal': 'Biquíni, sunga, ou sem camisa',
-      'partial': 'Camiseta e shorts, regata',
-      'full': 'Manga longa, calça comprida'
-    };
-    return descriptions[clothing as keyof typeof descriptions] || '';
+const getClothingDescription = (clothing: string) => {
+  const descriptions = {
+    'minimal': 'Biquíni, sunga, ou sem camisa',
+    'partial': 'Camiseta e shorts, regata',
+    'full': 'Manga longa, calça comprida'
   };
+  return descriptions[clothing as keyof typeof descriptions] || '';
+};
 
-export default UVTracker; 
+export default UVTracker;
